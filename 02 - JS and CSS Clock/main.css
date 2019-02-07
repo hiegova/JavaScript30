@@ -1,0 +1,109 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.clock ul.markers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.clock {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.clock .clockFace {
+  background-color: #fff;
+  width: 90%;
+  height: 90%;
+  border: 15px solid black;
+  border-color: white white black black;
+  border-radius: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75) inset;
+  position: relative;
+}
+
+.clock .markers {
+  top: 10px;
+}
+
+.clock .markers li {
+  top: inherit;
+  left: 50%;
+  position: absolute;
+  width: 0.7572745%;
+  height: 2.839779%;
+  background: #000;
+  transform-origin: inherit;
+}
+
+.clock .markers li:nth-child(5n+1) {
+  width: 1.1359118%;
+  height: 4.732966%;
+}
+
+.hand {
+  position: absolute;
+  left: 50%;
+  background: #000;
+  
+}
+
+.hours {
+  width: 2.2898237%;
+  height: 30.2909827%;
+  z-index: 10;
+}
+
+.minutes {
+  width: 1.7235139%;
+  height: 38.2937919%;
+  z-index: 11;
+}
+
+.seconds {
+  width: 0.7%;
+  height: 47%;
+  z-index: 12;
+  background: #f00;
+  box-shadow: -4px -6px 0 0 rgba(0, 0, 0, 0.15);
+  
+  transition: all 0.06s;
+  transition-timing-function: cubic-bezier(0.1, 1.7, 0.58, 1);
+}
+
+.cap {
+  width: 4%;
+  height: 4%;
+  background: #f00;
+  z-index: 13;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.colors {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(45deg, #ffffff 50%, #000000 50%);
+}
